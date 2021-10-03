@@ -1,0 +1,159 @@
+import java.util.Scanner;
+class calender
+{
+    public static void main (String args[])
+    {
+        Scanner sc=new Scanner (System.in);
+        System.out.print ("Enter an year - ");
+        int y=sc.nextInt();
+        System.out.print ("Enter the month - ");
+        int m=sc.nextInt();
+        /*System.out.print ("Enter the date - ");        
+        int d=sc.nextInt();*/
+        int d=1;
+        if(m>=1 && m<=12)
+        {
+            y--;m--;
+            y=y%400;
+            int od=0;
+            int ch=y/100;     
+            if(ch==1)
+            {
+                od=od+5;
+            }
+            else if(ch==2)
+            {
+                od=od+3;
+            }
+            else if(ch==3)
+            {
+                od=od+1;
+            }
+            y=y%100;
+            int leaps=y/4;
+            int nonleaps=y-leaps;
+            od=od+(leaps*2)+(nonleaps);
+            od=od%7;
+            int j=0;
+
+       
+            for(int tejas =1; tejas <=m;tejas++)
+            {
+                switch(tejas)
+                {
+                    case 12:j=3;break;
+                    case 11:j=2;break;
+                    case 10:j=3;break;
+                    case 9:j=2;break;
+                    case 8:j=3;break;
+                    case 7:j=3;break;
+                    case 6:j=2; break;
+                    case 5:j=3;break;
+                    case 4:j=2;break;
+                    case 3:j=3;break;
+                    case 2:j=0;break;
+                    case 1:j=3;break;
+                    default:System.out.println ("Invalid month");break; 
+                }
+                od=od+j;
+                if(m==tejas)
+                    break;
+            }
+            int rk=(od+d)%7;
+            /*switch(rk)
+            {
+            case 0:System.out.println ("Sunday");break;
+            case 1:System.out.println ("Monday");break;
+            case 2:System.out.println ("Tuesday");break;
+            case 3:System.out.println ("WednesDay");break;
+            case 4:System.out.println ("ThursDay");break;
+            case 5:System.out.println ("Friday");break;
+            case 6:System.out.println ("Saturday");break;
+
+            }*/
+            m++;
+            switch(m)
+            {
+                case 12:j=3;break;
+                case 11:j=2;break;
+                case 10:j=3;break;
+                case 9:j=2;break;
+                case 8:j=3;break;
+                case 7:j=3;break;
+                case 6:j=2; break;
+                case 5:j=3;break;
+                case 4:j=2;break;
+                case 3:j=3;break;
+                case 2:j=0;break;
+                case 1:j=3;break;
+
+            }
+            if(rk==0)
+            {
+                rk=7;
+            }
+            System.out.println ("\n\n\n");
+           String month[]={"Jan","FEBRUARY","MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER"};
+            System.out.println ("\t\t\t"+month[m-1]+", "+y+"\n\n\n");
+            
+            
+            System.out.println ("       MON     TUE     WED     THU     FRI     SAT     SUN");
+            int dates=0;
+            for(int yo=1;yo<=rk;yo++)
+            {
+                System.out.print("        ");
+            }
+            for(int pa=1;pa<=(8-rk);pa++)
+            {
+                System.out.print(pa+"\t");
+                dates=pa+1;
+            }
+            int dates2=0, dates3=0, dates4=0,dates5=0;
+            System.out.print("\n        ");
+            for(int pa=dates;pa<=(dates+6);pa++)
+            {
+                System.out.print(pa+"\t");
+                dates2 =pa+1;
+            }
+            System.out.print("\n        "); 
+            for(int pa=dates2;pa<=dates2+6;pa++)
+            {
+                System.out.print (pa+"\t");
+                dates3=pa+1;
+            }
+            System.out.print ("\n        ");
+            for(int pa=dates3;pa<=dates3+6;pa++)
+            {
+                System.out.print (pa+"\t");
+                dates4=pa+1;
+            }
+            //if(dates4<24)
+            {
+                System.out.print ("\n        ");
+                for(int pa=dates4;pa<=28+j;pa++)
+                {
+                    System.out.print (pa+"\t");
+                }
+            }
+            /*else
+            {
+                System.out.print ("\n        ");
+                for(int pa=dates4;pa<=dates5+6;pa++)
+                {
+                    System.out.print(pa+"\t");
+                    dates5=pa+1;
+                }
+                System.out.print ("\n        ");
+                for(int pa=dates5;pa<=28+j;pa++)
+                {
+                    System.out.print (pa+"\t");
+                }
+           }*/
+            }
+
+            else
+            {
+                System.out.println ("\n\nINVALID MONTH");
+            }
+        }
+    }
