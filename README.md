@@ -1,6 +1,8 @@
 # Goatpad
 
-my Java Project. 
+## My First Basic Java GUI Project
+
+### What is it?
 A simple Notepad Application in Java
 
 This Project is made in Java GUI. It is a simple text editor where one can create new text files and save them
